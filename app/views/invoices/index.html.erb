@@ -1,0 +1,17 @@
+<h1>All Invoices</h1>
+
+<table>
+	<tr>
+		<th>Number</th>
+		<th>Date</th>
+		<th>Foobar</th>
+		<th></th>
+	</tr>
+	<% @invoices.each do |invoice| %>
+	<tr>
+		<td><%= invoice.number %></td>
+    	<td><%= invoice.date %></td>
+		<td><%= link_to 'Show', invoice_path(invoice) %></td>
+	</tr>
+	<% end %>
+</table>
