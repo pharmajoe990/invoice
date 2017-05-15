@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  amount: 
+  unitCost: 9.99
+  includesTax: false
+  order: 1
+  invoice: one
+
+two:
+  description: MyString
+  amount: 
+  unitCost: 9.99
+  includesTax: false
+  order: 1
+  invoice: two
