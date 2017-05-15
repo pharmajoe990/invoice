@@ -1,13 +1,5 @@
-<%= form_for :invoice, url: invoices_path do |f| %>
-  <p>
-    <%= f.label :Date %><br />
-    <%= f.text_field :date %><br />
-    <%= f.label :Number %><br />
-    <%= f.text_field :number %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<h1>New Invoice</h1>
+
+<%= render 'form' %>
 
 <%= link_to 'Back', invoices_path %>

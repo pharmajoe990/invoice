@@ -8,6 +8,7 @@ class InvoicesController < ApplicationController
 	end
 
 	def new
+		@invoice = Invoice.new
 	end
 
 	def edit
@@ -29,6 +30,14 @@ class InvoicesController < ApplicationController
 	  else
 	    render 'edit'
 	  end
+	end
+
+
+	def destroy
+	  @invoice = Invoice.find(params[:id])
+	  @invoice.destroy
+	 
+	  redirect_to invoices_path
 	end
 
 	private
