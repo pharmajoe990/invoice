@@ -8,5 +8,46 @@
   <%= @invoice.date %>
 </p>
 
+<h2>Items</h2>
+<table>
+	<tr>
+		<th>Description</th>
+		<th>Amount</th>
+		<th>Cost</th>
+		<th>Include Tax?</th>
+	</tr>
+	<% @invoice.lineItems.each do |lineItem| %>
+    <tr>
+      <td><%= lineItem.description %></td>
+      <td><%= lineItem.amount %></td>
+      <td><%= lineItem.unitCost %></td>
+      <td><%= lineItem.includesTax %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Add a Line Item:</h2>
+<%= form_for([@invoice, @invoice.lineItems.build]) do |f| %>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :amount %><br>
+    <%= f.text_area :amount %>
+  </p>
+  <p>
+  	<%= f.label :unitCost %><br>
+    <%= f.text_area :unitCost %>
+  </p>
+  <p>
+  	<%= f.label :includesTax %><br>
+    <%= f.check_box :includesTax %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>
