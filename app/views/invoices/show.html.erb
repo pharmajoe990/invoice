@@ -1,57 +1,44 @@
-<p>
-  <strong>Number:</strong>
-  <%= @invoice.number %>
-</p>
+<div class="container">
+  <div class="invoice">
+    <header>
+      <section>
+        <h1>Invoice</h1>
+        <span><%= @invoice.date %></span>
+      </section>
 
-<p>
-  <strong>Date:</strong>
-  <%= @invoice.date %>
-</p>
+      <section>
+        <span><%= @invoice.number %></span>
+      </section>
+    </header>
 
-<h2>Items</h2>
-<table>
-	<tr>
-		<th>Description</th>
-		<th>Amount</th>
-		<th>Cost</th>
-		<th>Include Tax?</th>
-    <th></th>
-	</tr>
-	<% @invoice.lineItems.each do |lineItem| %>
-    <tr>
-      <td><%= lineItem.description %></td>
-      <td><%= lineItem.amount %></td>
-      <td><%= lineItem.unitCost %></td>
-      <td><%= lineItem.includesTax %></td>
-      <td><%= link_to 'Delete', [lineItem.invoice, lineItem],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+    <main>
+      <section>
+        <span>Product</span>
+        <span>Unit</span>
+        <span>Price</span>
+        <span>GST</span>
+      </section>
 
-<h2>Add a Line Item:</h2>
-<%= form_for([@invoice, @invoice.lineItems.build]) do |f| %>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :amount %><br>
-    <%= f.text_area :amount %>
-  </p>
-  <p>
-  	<%= f.label :unitCost %><br>
-    <%= f.text_area :unitCost %>
-  </p>
-  <p>
-  	<%= f.label :includesTax %><br>
-    <%= f.check_box :includesTax %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+      <section>
+        <% @invoice.lineItems.each do |lineItem| %>
+        <figure>
+          <span><%= lineItem.description %></span>
+          <span><%= lineItem.amount %></span>
+          <span><%= lineItem.unitCost %></span>
+          <span><%= lineItem.includesTax %></span>          
+        </figure>
+        <% end %>
+      </section>
 
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+      <section>
+        <span>Total</span>
+        <span>9.90</span>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#0">Later</a>
+      <a href="#0">Pay Now</a>
+    </footer>
+  </div>
+</div>
