@@ -5,6 +5,13 @@ class LineItemsController < ApplicationController
     redirect_to invoice_path(@invoice)
   end
 
+  def destroy
+    @invoice = Invoice.find(params[:invoice_id])
+    @lineItem = @invoice.lineItems.find(params[:id])
+    @lineItem.destroy
+    redirect_to invoice_path(@invoice)
+  end
+
   private
 
    def line_item_params
