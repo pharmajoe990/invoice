@@ -37,6 +37,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Bourbon Sass Lib
 gem 'bourbon'
+# Google fonts including Roboto
+gem 'google-webfonts-rails'
+# Material Icons (google)
+gem 'material_icons'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

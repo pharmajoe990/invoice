@@ -15,8 +15,8 @@
       <section>
         <span>Product</span>
         <span>Unit</span>
-        <span>Price</span>
         <span>GST</span>
+        <span>Price</span>
       </section>
 
       <section>
@@ -24,8 +24,8 @@
         <figure>
           <span><%= lineItem.description %></span>
           <span><%= lineItem.amount %></span>
+          <span><%= lineItem.includesTax %></span>
           <span><%= lineItem.unitCost %></span>
-          <span><%= lineItem.includesTax %></span>          
         </figure>
         <% end %>
       </section>
