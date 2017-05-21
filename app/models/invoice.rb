@@ -1,3 +1,3 @@
 class Invoice < ApplicationRecord
-	has_many :lineItems
+	has_many :lineItems, dependent: :destroy
 end
