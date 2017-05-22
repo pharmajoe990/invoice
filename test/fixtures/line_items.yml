@@ -1,16 +1,32 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
-  amount: 
+  description: Fruit
+  amount: 2
   unitCost: 9.99
   includesTax: false
   order: 1
   invoice: one
 
 two:
-  description: MyString
-  amount: 
+  description: Flour
+  amount: 3
+  unitCost: 10.05
+  includesTax: true
+  order: 2
+  invoice: one
+
+three:
+  description: Batteries
+  amount: 4
+  unitCost: 3.02
+  includesTax: false
+  order: 3
+  invoice: one
+
+four:
+  description: Linen
+  amount: 34
   unitCost: 9.99
   includesTax: false
   order: 1
