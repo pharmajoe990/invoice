@@ -2,8 +2,8 @@
 
 one:
   date: 2017-05-14
-  number: MyString
+  number: 0001
 
 two:
   date: 2017-05-14
-  number: MyString
+  number: AAABBB
