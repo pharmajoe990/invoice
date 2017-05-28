@@ -116,7 +116,7 @@ body {
         }
 
         &:nth-of-type(2) {
-          width: 22.5%;
+          width: 15%;
           @include margin(null 5% null null);
         }
 
@@ -125,11 +125,12 @@ body {
         }
 
         &:nth-of-type(3) {
-          width: 11.25%;
+          width: 15%;
         }
 
         &:nth-of-type(4) {
-          width: 11.25%;
+          width: 15%;
+          float: right;
         }
       }
     }

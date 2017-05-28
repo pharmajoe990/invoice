@@ -14,7 +14,7 @@
     <main>
       <section>
         <span>Product</span>
-        <span>Unit</span>
+        <span>Amount</span>
         <span>GST</span>
         <span>Price</span>
       </section>
@@ -24,7 +24,13 @@
         <figure>
           <span><%= lineItem.description %></span>
           <span><%= lineItem.amount %></span>
-          <span><%= lineItem.includesTax %></span>
+          <span>
+            <% if lineItem.includesTax %>
+              <i class="material-icons">done</i>
+            <% else %>
+              <i></i>
+            <% end %>
+          </span>
           <span><%= lineItem.unitCost %></span>
         </figure>
         <% end %>
@@ -32,6 +38,8 @@
 
       <section>
         <span>Total</span>
+        <span></span>
+        <span></span>
         <span><%= @invoice.total %></span>
       </section>
     </main>
