@@ -2,6 +2,10 @@ class LineItem < ApplicationRecord
   belongs_to :invoice
 
   def total
-    amount * unitCost
+    if amount && unitCost
+      amount * unitCost
+    else
+      0
+    end
   end
 end

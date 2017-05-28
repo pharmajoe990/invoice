@@ -34,6 +34,15 @@
           <span><%= lineItem.unitCost %></span>
         </figure>
         <% end %>
+         <figure>
+            <%= form_for([@invoice, @invoice.lineItems.build]) do |f| %>
+              <!--<span class="new-line-item"></span>-->
+              <%= f.text_field :description %>
+              <%= f.number_field :amount %>
+              <%= f.check_box :includesTax %>
+              <%= f.number_field :unitCost %>
+            <% end %>
+         </figure>
       </section>
 
       <section>
