@@ -12,45 +12,44 @@
     </header>
 
     <main>
-      <section>
-        <span>Product</span>
-        <span>Amount</span>
-        <span>GST</span>
-        <span>Price</span>
-      </section>
+      <table>
+        <tr>
+          <th align="left">Product</th>
+          <th align="right">Amount</th>
+          <th align="center">GST</th>
+          <th align="right">Price</th>
+          <th></th>
+        </tr>
 
-      <section>
         <% @invoice.lineItems.each do |lineItem| %>
-        <figure>
-          <span><%= lineItem.description %></span>
-          <span><%= lineItem.amount %></span>
-          <span>
-            <% if lineItem.includesTax %>
-              <i class="material-icons">done</i>
-            <% else %>
-              <i></i>
-            <% end %>
-          </span>
-          <span><%= lineItem.unitCost %></span>
-        </figure>
-        <% end %>
-         <figure>
-            <%= form_for([@invoice, @invoice.lineItems.build]) do |f| %>
-              <!--<span class="new-line-item"></span>-->
-              <%= f.text_field :description %>
-              <%= f.number_field :amount %>
-              <%= f.check_box :includesTax %>
-              <%= f.number_field :unitCost %>
-            <% end %>
-         </figure>
-      </section>
+          <tr>
+            <td align="left"><%= lineItem.description %></td>
+            <td align="right"><%= lineItem.amount %></td>
+            <td align="center">
+              <% if lineItem.includesTax %>
+                <i class="material-icons">done</i>
+              <% else %>
+                <i></i>
+              <% end %>
+            </td>
+            <td align="right"><%= lineItem.unitCost %></td>
+            <td align="right"><i class="material-icons icon-gray">delete</i></td>
+          </tr>
+          <% end %>
 
-      <section>
-        <span>Total</span>
-        <span></span>
-        <span></span>
-        <span><%= @invoice.total %></span>
-      </section>
+           <tr class="input-row">
+              <%= form_for([@invoice, @invoice.lineItems.build]) do |f| %>
+                <td align="left"><%= f.text_field :description, :value => 'New item' %></td>
+                <td align="right"><%= f.number_field :amount %></td>
+                <td align="center"><%= f.check_box :includesTax %></td>
+                <td align="right"><%= f.number_field :unitCost %></td>
+                <td align="center"><i class="material-icons icon-gray">add_circle</i></td>
+              <% end %>
+           </tr>
+         </table>
+
+        <span id="total-label">Total</span> <span id="total-amount"><%= @invoice.total %></span>
+
     </main>
 
     <footer>
